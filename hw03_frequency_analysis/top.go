@@ -14,7 +14,8 @@ func Top10(s string) []string {
 		word  string
 		count int
 	}
-	var counts []wordCount
+	counts := make([]wordCount, 0, len(m))
+
 	for word, count := range m {
 		counts = append(counts, wordCount{word, count})
 	}
