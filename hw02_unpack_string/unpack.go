@@ -21,7 +21,7 @@ func Unpack(s string) (string, error) {
 		}
 
 		repeat := 1
-		if i+1 < len(runes) && unicode.IsDigit(rune(runes[i+1])) {
+		if i+1 < len(runes) && unicode.IsDigit(runes[i+1]) {
 			repeat, _ = strconv.Atoi(string(runes[i+1]))
 			i++
 		}
