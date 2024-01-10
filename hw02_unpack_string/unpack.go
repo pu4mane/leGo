@@ -11,17 +11,18 @@ var ErrInvalidString = errors.New("invalid string")
 
 func Unpack(s string) (string, error) {
 	var result strings.Builder
+	runes := []rune(s)
 
-	for i := 0; i < len(s); i++ {
-		char := rune(s[i])
+	for i := 0; i < len(runes); i++ {
+		char := runes[i]
 
 		if unicode.IsDigit(char) {
 			return "", ErrInvalidString
 		}
 
 		repeat := 1
-		if i+1 < len(s) && unicode.IsDigit(rune(s[i+1])) {
-			repeat, _ = strconv.Atoi(string(s[i+1]))
+		if i+1 < len(runes) && unicode.IsDigit(rune(runes[i+1])) {
+			repeat, _ = strconv.Atoi(string(runes[i+1]))
 			i++
 		}
 
